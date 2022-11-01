@@ -1,0 +1,22 @@
+{
+    "name": "com.liteninja.analytics",
+    "version": "1.0.0",
+    "displayName": "LiteNinja Analytics",
+    "description": "A wrapper for analytics providers",
+    "unity": "2021.1",
+    "documentationUrl": "https://github.com/sponticelli/LiteNinja-Analytics/blob/main/README.md",
+    "changelogUrl": "https://github.com/sponticelli/LiteNinja-Analytics/blob/main/changelog.md",
+    "licensesUrl": "https://github.com/sponticelli/LiteNinja-Analytics/blob/main/LICENSE",
+    "dependencies": {
+    },
+    "keywords": [
+      "utility",
+      "Analytics",
+      "utils"
+    ],
+    "author": {
+      "name": "Sandro Ponticelli",
+      "email": "sandro.ponticelli@gmail.com",
+      "url": "https://github.com/sponticelli"
+    }
+  }
