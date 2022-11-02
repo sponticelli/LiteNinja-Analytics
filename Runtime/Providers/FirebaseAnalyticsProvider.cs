@@ -67,8 +67,10 @@ namespace LiteNinja.Analytics
                 break;
             }
           }
-      }
-      FirebaseAnalytics.LogEvent(eventName, firebaseParameters.ToArray());
+          FirebaseAnalytics.LogEvent(eventName, firebaseParameters.ToArray());
+      } else {
+        FirebaseAnalytics.LogEvent(eventName);
+      }      
     }
   }
 #endif
