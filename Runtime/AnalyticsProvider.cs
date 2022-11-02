@@ -46,7 +46,7 @@ namespace LiteNinja.Analytics
     /// </summary>
     /// <param name="eventName"></param>
     /// <param name="parameters"></param>
-    public void LogEvent(string eventName, Dictionary<string, object> parameters)
+    public void LogEvent(string eventName, Dictionary<string, object> parameters = null)
     {
       if (!Active || !CanLog())
         return;

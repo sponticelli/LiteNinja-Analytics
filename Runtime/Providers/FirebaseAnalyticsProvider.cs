@@ -44,26 +44,29 @@ namespace LiteNinja.Analytics
     protected override void SendAnalytics(string eventName, Dictionary<string, object> parameters)
     {
       var firebaseParameters = new List<Parameter>();
-      foreach (var parameter in parameters)
+      if (parameters != null)
       {
-        switch (parameter.Value)
-        {
-          case string value:
-            firebaseParameters.Add(new Parameter(parameter.Key, value));
-            break;
-          case long value:
-            firebaseParameters.Add(new Parameter(parameter.Key, value));
-            break;
-          case int value:
-            firebaseParameters.Add(new Parameter(parameter.Key, value));
-            break;
-          case double value:
-            firebaseParameters.Add(new Parameter(parameter.Key, value));
-            break;
-          case float value:
-            firebaseParameters.Add(new Parameter(parameter.Key, value));
-            break;
-        }
+          foreach (var parameter in parameters)
+          {
+            switch (parameter.Value)
+            {
+              case string value:
+                firebaseParameters.Add(new Parameter(parameter.Key, value));
+                break;
+              case long value:
+                firebaseParameters.Add(new Parameter(parameter.Key, value));
+                break;
+              case int value:
+                firebaseParameters.Add(new Parameter(parameter.Key, value));
+                break;
+              case double value:
+                firebaseParameters.Add(new Parameter(parameter.Key, value));
+                break;
+              case float value:
+                firebaseParameters.Add(new Parameter(parameter.Key, value));
+                break;
+            }
+          }
       }
       FirebaseAnalytics.LogEvent(eventName, firebaseParameters.ToArray());
     }

@@ -30,13 +30,16 @@ namespace LiteNinja.Analytics
       sb.Append("<color=#");
       sb.Append(_colorString);
       sb.Append(">Event: ").Append(eventName).Append("</color>").AppendLine();
-      foreach (var parameter in parameters)
+      if (parameters != null)
       {
-        sb.Append("\t");
-        sb.Append(parameter.Key);
-        sb.Append(": ");
-        sb.Append(parameter.Value);
-        sb.AppendLine();
+          foreach (var parameter in parameters)
+          {
+            sb.Append("\t");
+            sb.Append(parameter.Key);
+            sb.Append(": ");
+            sb.Append(parameter.Value);
+            sb.AppendLine();
+          }
       }
       Debug.Log(sb.ToString());
     }
