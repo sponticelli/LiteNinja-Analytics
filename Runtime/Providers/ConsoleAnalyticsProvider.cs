@@ -11,12 +11,12 @@ namespace LiteNinja.Analytics
   public class ConsoleAnalyticsProvider : AnalyticsProvider
   {
     [SerializeField]
-    private Color _color = Color.white;
+    private Color _debugColor = Color.white;
     private string _colorString;
     public override void Initialize()
     {
-      _colorString = ColorUtility.ToHtmlStringRGB(_color);
-      Debug.Log("<color=#>ConsoleAnalyticsProvider initialized");
+      _colorString = ColorUtility.ToHtmlStringRGB(_debugColor);
+      Debug.Log($"<color=#{_colorString}>ConsoleAnalyticsProvider initialized");
     }
 
     public override bool CanLog() => true;

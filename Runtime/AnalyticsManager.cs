@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace LiteNinja.Analytics
@@ -20,6 +21,15 @@ namespace LiteNinja.Analytics
         AddProvider(_providers);
       }
 
+    }
+    
+    /// <summary>
+    /// Check if all the providers are ready to send events
+    /// </summary>
+    /// <returns>true if all the provider are initialized</returns>
+    public bool CanLog()
+    {
+      return _providers.All(provider => provider.CanLog());
     }
 
     
