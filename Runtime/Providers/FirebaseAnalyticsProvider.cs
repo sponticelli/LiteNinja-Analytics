@@ -73,5 +73,28 @@ namespace LiteNinja.Analytics
       }      
     }
   }
+#else 
+  [CreateAssetMenu(fileName = "FirebaseAnalyticsProvider", menuName = "LiteNinja/Analytics/Firebase Analytics Provider (Fake)", order = 2)]
+  public class FirebaseAnalyticsProvider : AnalyticsProvider
+  {
+    [SerializeField]
+    private Color _debugColor = Color.white;
+    private string _colorString;
+    
+    public override void Initialize()
+    {
+        _colorString = ColorUtility.ToHtmlStringRGB(_debugColor);
+        Debug.Log($"<color=#{_colorString}>Fake Firebase Analytics Initialized</color>");
+    } 
+    
+    public override bool CanLog() => true;
+    protected override Dictionary<string, object> ConvertParameters(Dictionary<string, object> parameters) => parameters;    
+    protected override string ConvertEventName(string eventName) => eventName;
+   
+    protected override void SendAnalytics(string eventName, Dictionary<string, object> parameters)
+    {
+      // do nothing
+    }
+  }
 #endif
 }
